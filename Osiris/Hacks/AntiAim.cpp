@@ -464,11 +464,11 @@ AntiAim::moving_flag AntiAim::get_moving_flag(const UserCmd* cmd) noexcept
         return latest_moving_flag = jumping;
     if (localPlayer->velocity().length2D() > 0.f)
     {
-        if (config->misc.slowwalkKey.isActive())
+        if (config->misc.slowwalk && config->misc.slowwalkKey.isActive())
             return latest_moving_flag = slow_walking;
         return latest_moving_flag = moving;
     }
-    if (config->misc.fakeduckKey.isActive())
+    if (config->misc.fakeduck && config->misc.fakeduckKey.isActive())
         return latest_moving_flag = fake_ducking;
     return latest_moving_flag = freestanding;
 }
